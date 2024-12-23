@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Bhavesh Bansal – Full Stack Engineer & AI Enthusiast, building no-code Shopify solutions for 100+ DTC brands.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhavesh Bansal – Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- GSAP Animation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <style>
+    /* ==================== GLOBAL STYLES ==================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+      color: #333;
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    img {
+      display: block;
+      max-width: 100%;
+    }
+    ul {
+      list-style: none;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f2f2f2;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #bbb;
+      border-radius: 4px;
+    }
+
+    /* ==================== NAVBAR ==================== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #222;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      font-weight: 500;
+      color: #555;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #007BFF;
+    }
+    .nav-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: #555;
+      cursor: pointer;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 1rem 2rem;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(6px);
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 75%;
+      box-shadow: -2px 0 4px rgba(0,0,0,0.1);
+    }
+    .mobile-menu a {
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .nav-toggle {
+        display: block;
+      }
+      .mobile-menu.active {
+        display: flex;
+      }
+    }
+
+    /* ==================== HERO SECTION ==================== */
+    .hero {
+      min-height: 100vh;
+      padding-top: 80px; /* Space for navbar */
+      background: linear-gradient(100deg, #ffffff 50%, #f0f0f0 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-shapes {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .shape1, .shape2 {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+    }
+    .shape1 {
+      width: 130px;
+      height: 130px;
+      background: #ff4d4d;
+      top: 10%;
+      left: 5%;
+      animation: float1 6s ease-in-out infinite alternate;
+    }
+    .shape2 {
+      width: 130px;
+      height: 130px;
+      background: #0066ff;
+      bottom: 15%;
+      right: 10%;
+      animation: float2 8s ease-in-out infinite alternate;
+    }
+    @keyframes float1 {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-15px, 25px); }
+    }
+    @keyframes float2 {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(20px, -20px); }
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-text {
+      flex: 1;
+    }
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      color: #222;
+      margin-bottom: 1rem;
+    }
+    .hero-text p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 2rem;
+      max-width: 480px;
+    }
+    .cta-group {
+      display: flex;
+      gap: 1.2rem;
+    }
+    .cta-btn {
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .cta-primary {
+      background: #000;
+      color: #fff;
+    }
+    .cta-primary:hover {
+      background: #333;
+      transform: translateY(-3px);
+    }
+    .cta-secondary {
+      background: #fff; 
+      color: #000;
+      border: 2px solid #000;
+    }
+    .cta-secondary:hover {
+      background: #efefef;
+      transform: translateY(-3px);
+    }
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero-image img {
+      width: 320px; 
+      height: 420px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+    .hero-image img:hover {
+      transform: scale(1.05);
+    }
+
+    /* ==================== COMPANIES SECTION ==================== */
+    .companies {
+      padding: 5rem 2rem;
+      background-color: #ffffff;
+    }
+    .companies-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+    }
+    .companies h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #222;
+      margin-bottom: 2rem;
+    }
+    .companies-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    .companies-logos img {
+      max-width: 80px;
+      filter: grayscale(100%);
+      opacity: 0.7;
+      transition: transform 0.3s, filter 0.3s, opacity 0.3s;
+      cursor: pointer;
+    }
+    .companies-logos img:hover {
+      transform: scale(1.1);
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+
+    /* ==================== TIMELINE SECTION ==================== */
+    .timeline-section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .timeline-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #222;
+    }
+    .timeline {
+      position: relative;
+      margin-top: 2rem;
+      padding: 2rem 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50px;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background: #999;
+      opacity: 0.3;
+    }
+    .timeline-line {
+      position: absolute;
+      left: 50px;
+      top: 0;
+      width: 2px;
+      height: 0;
+      background: #222;
+      opacity: 0.6;
+      transform-origin: top;
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 80px;
+      margin-bottom: 4rem;
+    }
+    .marker {
+      position: absolute;
+      left: 42px; 
+      top: 0;
+      width: 16px; 
+      height: 16px;
+      background: #222; 
+      border-radius: 50%;
+      animation: markerPulse 2s infinite;
+    }
+    @keyframes markerPulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(34,34,34,0.3);
+      }
+      70% {
+        box-shadow: 0 0 0 20px rgba(34,34,34,0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(34,34,34,0);
+      }
+    }
+    .timeline-item h3 {
+      font-size: 1.2rem; 
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #222;
+    }
+    .time-range {
+      font-size: 0.9rem; 
+      color: #777; 
+      margin-bottom: 0.7rem;
+      display: block;
+    }
+    .timeline-item p {
+      font-size: 0.95rem; 
+      line-height: 1.6; 
+      color: #444;
+      margin-bottom: 1rem;
+    }
+    .timeline-item ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      margin-top: 0.5rem;
+    }
+    .timeline-item ul li {
+      margin-bottom: 0.3rem; 
+      color: #333;
+    }
+
+    /* ==================== SKILLS SECTION ==================== */
+    .skills-section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      margin-top: 2rem;
+    }
+    .skills-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: #222;
+    }
+    .skills-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .skill-category {
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.05);
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+    .skill-category:hover {
+      transform: translateY(-5px);
+    }
+    .skill-category h4 {
+      font-size: 1.2rem; 
+      font-weight: 600; 
+      margin-bottom: 1rem;
+      color: #222;
+    }
+    .skill-list {
+      display: flex; 
+      flex-direction: column; 
+      gap: 0.7rem;
+    }
+    .skill-item {
+      display: flex; 
+      align-items: center; 
+      gap: 0.5rem;
+      font-size: 0.9rem; 
+      color: #444; 
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .skill-item i {
+      color: #007BFF;
+      width: 20px; 
+      text-align: center;
+    }
+    .skill-item:hover {
+      transform: translateX(5px);
+      color: #007BFF;
+    }
+
+    /* ==================== CONTACT SECTION ==================== */
+    .contact-section {
+      text-align: center; 
+      padding: 4rem 2rem; 
+      max-width: 900px; 
+      margin: 0 auto;
+    }
+    .contact-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #222;
+    }
+    .contact-info {
+      font-size: 0.95rem; 
+      color: #555; 
+      line-height: 1.6; 
+      max-width: 600px; 
+      margin: 0 auto 2rem;
+    }
+    .contact-btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: #222;
+      color: #fff;
+      border-radius: 25px;
+      font-weight: 500;
+      transition: background 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+    .contact-btn:hover {
+      background: #444; 
+      transform: translateY(-3px);
+    }
+
+    /* ==================== FOOTER ==================== */
+    footer {
+      background: #f1f1f1;
+      text-align: center;
+      color: #777;
+      font-size: 0.9rem;
+      padding: 1rem;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+
+    /* ==================== MEDIA QUERIES ==================== */
+    @media (max-width: 768px) {
+      .hero-content {
+        flex-direction: column;
+      }
+      .hero-text p {
+        max-width: 100%;
+      }
+      .hero-image img {
+        width: 260px; 
+        height: 360px;
+      }
+      .timeline::before, .timeline-line {
+        left: 20px;
+      }
+      .timeline-item {
+        padding-left: 60px;
+      }
+      .marker {
+        left: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-logo">Bhavesh Bansal</div>
+      <ul class="nav-links">
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-toggle" id="nav-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <ul class="mobile-menu" id="mobile-menu">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <!-- Floating Shapes -->
+    <div class="hero-shapes">
+      <div class="shape1"></div>
+      <div class="shape2"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Hi, I'm Bhavesh Bansal</h1>
+        <p>
+          A <strong>Full Stack Engineer & AI Enthusiast</strong> delivering <em>no-code mobile solutions</em> for <strong>100+ DTC brands</strong>, seamlessly blending performance and user delight.
+        </p>
+        <div class="cta-group">
+          <a href="#contact" class="cta-btn cta-primary">
+            <i class="fas fa-briefcase"></i> Hire Me
+          </a>
+          <a href="#experience" class="cta-btn cta-secondary">
+            <i class="fas fa-info-circle"></i> Know More
+          </a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://via.placeholder.com/320x420?text=Your+Photo" alt="Bhavesh Bansal">
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPANIES SECTION -->
+  <section class="companies" id="companies">
+    <div class="companies-container">
+      <h2>Companies I Have Worked With</h2>
+      <div class="companies-logos">
+        <img src="https://via.placeholder.com/80x40?text=Brand1" alt="Brand1">
+        <img src="https://via.placeholder.com/80x40?text=Brand2" alt="Brand2">
+        <img src="https://via.placeholder.com/80x40?text=Brand3" alt="Brand3">
+        <img src="https://via.placeholder.com/80x40?text=Brand4" alt="Brand4">
+        <img src="https://via.placeholder.com/80x40?text=Brand5" alt="Brand5">
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE SECTION -->
+  <section class="timeline-section" id="experience">
+    <h2>My Professional Journey</h2>
+    <div class="timeline">
+      <!-- Animated Timeline Line -->
+      <div class="timeline-line" id="timeline-line"></div>
+      <!-- Timeline Items -->
+      <div class="timeline-item">
+        <div class="marker"></div>
+        <div class="timeline-content">
+          <h3>Senior Software Engineer – Appbrew Inc</h3>
+          <span class="time-range">Apr 2022 – Present</span>
+          <p>
+            Engineered a no-code SaaS platform enabling <strong>100+ DTC brands</strong> on Shopify to launch native mobile apps, integrating AI chat flows and AWS serverless.
+          </p>
+          <ul>
+            <li>Deep Shopify knowledge for thousands of merchants</li>
+            <li>~30% uplift in brand conversions with AI chat solutions</li>
+            <li>Fully automated CI/CD with sub-300ms response times</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="marker"></div>
+        <div class="timeline-content">
+          <h3>Software Engineer – Pepcoding</h3>
+          <span class="time-range">Jan 2021 – Apr 2022</span>
+          <p>
+            Scaled <strong>NADOS.io</strong>, hosting coding competitions for 10K+ users, achieving sub-30K Alexa rank via SEO, and ensuring zero downtime for large real-time events.
+          </p>
+          <ul>
+            <li>70% traffic boost from advanced SEO</li>
+            <li>Flawless performance for major coding challenges</li>
+            <li>Empowered thousands to succeed in coding</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="marker"></div>
+        <div class="timeline-content">
+          <h3>Software Engineer – Squareboat</h3>
+          <span class="time-range">Oct 2020 – Dec 2020</span>
+          <p>
+            Developed NestJS microservices handling millions of daily requests. Migrated from MongoDB to MySQL, reducing queries by ~40%, and introduced queue-based notifications for user engagement.
+          </p>
+          <ul>
+            <li>~40% faster queries post DB migration</li>
+            <li>Stable microservices at high scale</li>
+            <li>Enhanced user re-engagement via push/email notifications</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="marker"></div>
+        <div class="timeline-content">
+          <h3>Software Engineer – SaaS Labs</h3>
+          <span class="time-range">Aug 2020 – Oct 2020</span>
+          <p>
+            Built PHP dashboards for real-time SaaS analytics. Integrated Twilio cloud calling solutions, improving efficiency for thousands of SMB clients.
+          </p>
+          <ul>
+            <li>Analytics-driven insights for numerous SaaS clients</li>
+            <li>Streamlined communications via Twilio integration</li>
+            <li>Enhanced user satisfaction with data-driven solutions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="marker"></div>
+        <div class="timeline-content">
+          <h3>Freelance & Part-Time Instructor</h3>
+          <span class="time-range">Since 2021</span>
+          <p>
+            Mentored 10K+ students in MERN, AWS, and System Design across Masai, Newton, Geekster, and Pepcoding. Consulted startups to build MVPs using microservices & serverless architectures.
+          </p>
+          <ul>
+            <li>80% placement rate in under 6 months</li>
+            <li>Halved time-to-market for multiple MVPs</li>
+            <li>Maintained 4.8+ rating from thousands of learners</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS SECTION -->
+  <section class="skills-section" id="skills">
+    <h2>My Skill Arsenal</h2>
+    <div class="skills-categories">
+      <!-- Category 1: Core Tech -->
+      <div class="skill-category">
+        <h4>Core Tech</h4>
+        <div class="skill-list">
+          <div class="skill-item">
+            <i class="fab fa-node-js"></i>
+            <span>Node.js / Express / NestJS</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-react"></i>
+            <span>React / React Native</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-database"></i>
+            <span>MySQL / MongoDB / Redis</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-shopify"></i>
+            <span>Shopify APIs / Liquid</span>
+          </div>
+        </div>
+      </div>
+      <!-- Category 2: AI & Data -->
+      <div class="skill-category">
+        <h4>AI & Data</h4>
+        <div class="skill-list">
+          <div class="skill-item">
+            <i class="fas fa-brain"></i>
+            <span>OpenAI / ChatGPT Integrations</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-chart-bar"></i>
+            <span>MoEngage / Google Analytics / FB Pixel</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-code"></i>
+            <span>Data Structures & Algorithms</span>
+          </div>
+        </div>
+      </div>
+      <!-- Category 3: Cloud & DevOps -->
+      <div class="skill-category">
+        <h4>Cloud & DevOps</h4>
+        <div class="skill-list">
+          <div class="skill-item">
+            <i class="fab fa-aws"></i>
+            <span>AWS (Lambda, EC2, S3)</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-docker"></i>
+            <span>Docker / Kubernetes</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-cogs"></i>
+            <span>CI/CD (Jenkins, GitHub Actions)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section" id="contact">
+    <h3 class="contact-heading">Let's Collaborate</h3>
+    <p class="contact-info">
+      Need no-code mobile apps, AI-driven engagement, or robust cloud architectures? I’m here to make your next project a success.
+    </p>
+    <a href="mailto:bansalbhavesh47@gmail.com" class="contact-btn">Get in Touch</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2024 Bhavesh Bansal. All Rights Reserved.</p>
+  </footer>
+
+  <!-- ========================== GSAP ANIMATIONS ========================== -->
+  <script>
+    // Register GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Navbar Toggle
+      const navToggle = document.getElementById('nav-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      navToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        navToggle.innerHTML = mobileMenu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+      });
+
+      // Hero Animations
+      gsap.from('.hero-text h1', {
+        y: 70,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power4.out'
+      });
+      gsap.from('.hero-text p', {
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        delay: 0.3,
+        ease: 'power4.out'
+      });
+      gsap.from('.cta-group .cta-btn', {
+        y: 20,
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.7,
+        stagger: 0.1,
+        ease: 'power2.out'
+      });
+      gsap.from('.hero-image img', {
+        x: 50,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'power2.out',
+        scrollTrigger: '.hero-image img'
+      });
+
+      // Companies Animations
+      gsap.from('.companies-logos img', {
+        y: 20,
+        scale: 0.8,
+        opacity: 0,
+        stagger: 0.2,
+        duration: 0.6,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.companies',
+          start: 'top 80%'
+        }
+      });
+
+      // Timeline Line Animation
+      gsap.from('.timeline-line', {
+        height: 0,
+        duration: 2,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.timeline',
+          start: 'top 80%',
+          end: 'bottom 20%',
+          scrub: true
+        }
+      });
+
+      // Timeline Items Animation
+      gsap.utils.toArray('.timeline-item').forEach((item, i) => {
+        gsap.from(item, {
+          y: 60,
+          opacity: 0,
+          duration: 0.8,
+          delay: i * 0.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 90%'
+          }
+        });
+      });
+
+      // Skills Section Animations
+      gsap.from('.skills-heading', {
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.skills-section',
+          start: 'top 85%'
+        }
+      });
+      gsap.utils.toArray('.skill-category').forEach((cat, i) => {
+        gsap.from(cat, {
+          y: 60,
+          opacity: 0,
+          duration: 0.8,
+          delay: i * 0.2,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: cat,
+            start: 'top 90%'
+          }
+        });
+      });
+
+      // Contact Section Animations
+      gsap.from('.contact-heading', {
+        y: 30,
+        opacity: 0,
+        duration: 0.7,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.contact-section',
+          start: 'top 80%'
+        }
+      });
+      gsap.from('.contact-info', {
+        y: 20,
+        opacity: 0,
+        duration: 0.7,
+        delay: 0.2,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.contact-info',
+          start: 'top 80%'
+        }
+      });
+      gsap.from('.contact-btn', {
+        y: 20,
+        opacity: 0,
+        duration: 0.7,
+        delay: 0.4,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '.contact-btn',
+          start: 'top 80%'
+        }
+      });
+    });
+  </script>
+</body>
+</html>
